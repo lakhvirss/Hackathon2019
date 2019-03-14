@@ -10,6 +10,7 @@ import UIKit
 import QuartzCore
 import HFCardCollectionViewLayout
 
+
 class ExampleCollectionViewCell: HFCardCollectionViewCell {
     
     var cardCollectionViewLayout: HFCardCollectionViewLayout?
@@ -17,28 +18,27 @@ class ExampleCollectionViewCell: HFCardCollectionViewCell {
     @IBOutlet var buttonFlip: UIButton?
     @IBOutlet var tableView: UITableView?
     @IBOutlet var imageIcon: UIImageView?
-    @IBOutlet var hedgeSlider : UISlider?
-    @IBOutlet var graphChart : UIImage?
     @IBOutlet var eventName: UILabel!
     @IBOutlet var eventNews: UITextView!
+    
+    @IBOutlet var portfolioHoldings: UILabel!
 
     @IBOutlet var eventDesc: UILabel!
 
     @IBOutlet var mainChart: UIImageView!
     @IBOutlet var backView: UIView?
-    @IBOutlet var buttonFlipBack: UIButton?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.buttonFlip?.isHidden = true
-        self.eventName.text = "peace"
         self.tableView?.scrollsToTop = false
-        
+        self.adjustUITextViewHeight(arg: self.eventNews)
         self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "TableCell")
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
         self.tableView?.allowsSelectionDuringEditing = false
         self.tableView?.reloadData()
+        
     }
     
     func cardIsRevealed(_ isRevealed: Bool) {
@@ -46,19 +46,25 @@ class ExampleCollectionViewCell: HFCardCollectionViewCell {
         self.tableView?.scrollsToTop = isRevealed
     }
     
+    func adjustUITextViewHeight(arg : UITextView)
+    {
+        arg.translatesAutoresizingMaskIntoConstraints = true
+        arg.sizeToFit()
+        arg.isScrollEnabled = false
+    }
     @IBAction func buttonFlipAction() {
         if let backView = self.backView {
             // Same Corner radius like the contentview of the HFCardCollectionViewCell
             backView.layer.cornerRadius = self.cornerRadius
             backView.layer.masksToBounds = true
-            self.hedgeSlider?.isHidden = false
-            self.graphChart = UIImage(named: "random")
+            backView.backgroundColor = UIColor.white
+            //self.portfolioHoldings.text = "lemong"
+            //self.hedgeSlider?.isHidden = true
+            //self.graphChart = UIImage(named: "random")
 
             self.cardCollectionViewLayout?.flipRevealedCard(toView: backView)
         }
     }
-    
-    
 }
 
 extension ExampleCollectionViewCell : UITableViewDelegate, UITableViewDataSource {

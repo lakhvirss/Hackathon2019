@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_HFCardCollectionViewLayoutExampleVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_HFCardCollectionViewLayoutExampleVersionString[];
+FOUNDATION_EXPORT double Pods_FinalDemoVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_FinalDemoVersionString[];
 

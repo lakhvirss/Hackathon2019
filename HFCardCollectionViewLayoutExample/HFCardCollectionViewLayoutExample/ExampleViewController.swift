@@ -13,12 +13,26 @@ struct CardInfo {
     var color: UIColor
     var icon: UIImage
     var eventName: String
+    var eventDesc: String
+    var mainImage: UIImage
+    var eventNews: String
+
 }
 
 class ExampleViewController : UICollectionViewController, HFCardCollectionViewLayoutDelegate {
     
+    
     var cardCollectionViewLayout: HFCardCollectionViewLayout?
     
+    @IBAction func raiseOrder(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Order raised!", message: "market meltdown prevented.", preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style:UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+    UIApplication.shared.keyWindow?.rootViewController?.present(alert,animated: true, completion: nil)
+    }
     @IBOutlet var backgroundView: UIView?
     @IBOutlet var backgroundNavigationBar: UINavigationBar?
     
@@ -57,6 +71,10 @@ class ExampleViewController : UICollectionViewController, HFCardCollectionViewLa
         cell.backgroundColor = self.cardArray[indexPath.item].color
         cell.imageIcon?.image = self.cardArray[indexPath.item].icon
         cell.eventName?.text = self.cardArray[indexPath.item].eventName
+        cell.mainChart?.image = self.cardArray[indexPath.item].mainImage
+        cell.eventDesc?.text = self.cardArray[indexPath.item].eventDesc
+        cell.eventNews?.text = self.cardArray[indexPath.item].eventNews
+
         return cell
     }
     
@@ -109,23 +127,29 @@ class ExampleViewController : UICollectionViewController, HFCardCollectionViewLa
         
             self.cardCollectionViewLayout?.bottomNumberOfStackedCards = cardLayoutOptions.bottomNumberOfStackedCards
             self.cardCollectionViewLayout?.bottomStackedCardsShouldScale = cardLayoutOptions.bottomStackedCardsShouldScale
-            //let count = cardLayoutOptions.numberOfCards
-            
-            
-            
-            self.cardArray.insert(createCardInfo(clr: UIColor.red, eventName: "BOENG!!"), at:0)
-              self.cardArray.insert(createCardInfo(clr: UIColor.yellow, eventName: "BREXIT!!"), at:1)
-              self.cardArray.insert(createCardInfo(clr: UIColor.green, eventName: "VOLKSWAGEN!!"), at:2)
+   
+            guard let brexit = UIImage(named: "brexit") else {return}
+            guard let boeing = UIImage(named: "boeing") else {return}
+                guard let volks = UIImage(named: "volks") else {return}
+            let rcolour = UIColor(red: 231.0/255.0, green: 76.0/255.0, blue: 60.0/255.0, alpha: 1.0)
+                        let ycolour = UIColor(red: 255.0/255.0, green: 195.0/255.0, blue: 18.0/255.0, alpha: 1.0)
+                        let gcolour = UIColor(red: 120.0/255.0, green: 224.0/255.0, blue: 143.0/255.0, alpha: 1.0)
+            self.cardArray.insert(createCardInfo(clr: rcolour, eventName: "Boeing", eventDesc: "Breaking news: Boeing stock price crashes by 13%", mainImage: boeing, eventNews:
+                """
+Boeing shares slumped almost 13 per cent on Monday after thesecond fatal crash of one if its 737 Max 8 planes.The sell-off wiped around $30bn (£23bn) wiped off. Boeing’s valuation leavingthe world’s largest plane manufacturer on track to record its biggest single-day trading fall in two decades as concerns mount about a possible technical problem with one of its models. All 157 passengers and crew aboard an Ethiopian Airlines flight died when the plane crashed shortly after take-off from Addis Ababa on Sunday morning.
+"""), at:0)
+            self.cardArray.insert(createCardInfo(clr: ycolour, eventName: "Brexit", eventDesc: "Sterling plummeted, U.S. dollar up", mainImage: brexit, eventNews: ""), at:1)
+            self.cardArray.insert(createCardInfo(clr: gcolour, eventName: "Volkswagen", eventDesc: "VW emissions scandal hits 11m vehicles", mainImage: volks, eventNews: ""), at:2)
         
 
         }
         self.collectionView?.reloadData()
     }
     
-    private func createCardInfo(clr: UIColor, eventName: String) -> CardInfo {
+    private func createCardInfo(clr: UIColor, eventName: String, eventDesc: String, mainImage: UIImage, eventNews: String) -> CardInfo {
         let icons: [UIImage] = [#imageLiteral(resourceName: "Icon1.pdf"), #imageLiteral(resourceName: "Icon2.pdf"), #imageLiteral(resourceName: "Icon3.pdf"), #imageLiteral(resourceName: "Icon4.pdf"), #imageLiteral(resourceName: "Icon5.pdf"), #imageLiteral(resourceName: "Icon6.pdf")]
         let icon = icons[Int(arc4random_uniform(6))]
-        let newItem = CardInfo(color: clr, icon: icon, eventName: eventName)
+        let newItem = CardInfo(color: clr, icon: icon, eventName: eventName, eventDesc: eventDesc, mainImage: mainImage, eventNews: eventNews)
         return newItem
     }
     
