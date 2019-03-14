@@ -39,15 +39,13 @@ class NotificationService: UNNotificationServiceExtension {
         guard let attachment = UNNotificationAttachment.create(imageFileIdentifier: "image.gif", data: imageData, options: nil) else { return failEarly() }
         
         //Define the notification actions
-        let meowAction = UNNotificationAction(identifier: "meow", title: "Meow", options: [])
-        let pizzaAction = UNNotificationAction(identifier: "pizza", title: "Pizza?", options: [])
+        let meowAction = UNNotificationAction(identifier: "et2cio", title: "Escalate to CIO", options: [])
+        let pizzaAction = UNNotificationAction(identifier: "et2t", title: "Escalate to team", options: [])
         
         let category = UNNotificationCategory(identifier: "myCategoryName", actions: [meowAction, pizzaAction], intentIdentifiers: [], options: [])
         UNUserNotificationCenter.current().setNotificationCategories([category])
         content.attachments = [attachment]
         contentHandler(content.copy() as! UNNotificationContent)
-        
-        
     }
     
     override func serviceExtensionTimeWillExpire() {

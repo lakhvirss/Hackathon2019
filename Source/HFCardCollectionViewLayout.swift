@@ -402,6 +402,7 @@ open class HFCardCollectionViewLayout: UICollectionViewLayout, UIGestureRecogniz
             return
         }
         if let cardCell = self.revealedCardCell {
+            cardCell.backgroundColor = UIColor(red: 120.0/255.0, green: 224.0/255.0, blue: 143.0/255.0, alpha: 1.0)
             if let flipView = self.revealedCardFlipView {
                 let originalShouldRasterize = cardCell.layer.shouldRasterize
                 UIApplication.shared.keyWindow?.endEditing(true)

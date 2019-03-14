@@ -17,6 +17,8 @@ class ExampleCollectionViewCell: HFCardCollectionViewCell {
     @IBOutlet var portfolioHoldings: UILabel!
 
     @IBOutlet var eventDesc: UILabel!
+    @IBOutlet var hedgeSlider: UISlider!
+
 
     @IBOutlet var mainChart: UIImageView!
     @IBOutlet var backView: UIView?
@@ -47,14 +49,6 @@ class ExampleCollectionViewCell: HFCardCollectionViewCell {
     }
     @IBAction func buttonFlipAction() {
         if let backView = self.backView {
-//            // Same Corner radius like the contentview of the HFCardCollectionViewCell
-//            backView.layer.cornerRadius = self.cornerRadius
-//            backView.layer.masksToBounds = true
-            backView.backgroundColor = UIColor.white
-            //self.portfolioHoldings.text = "lemong"
-            //self.hedgeSlider?.isHidden = true
-            //self.graphChart = UIImage(named: "random")
-            
             self.cardCollectionViewLayout?.flipRevealedCard(toView: backView)
         }
     }
