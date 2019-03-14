@@ -1,11 +1,4 @@
-//
-//  ExampleViewController.swift
-//  HFCardCollectionViewLayoutExample
-//
-//  Created by Hendrik Frahmann on 28.10.16.
-//  Copyright © 2016 Hendrik Frahmann. All rights reserved.
-//
-
+// BLK Hackathon 2019
 import UIKit
 import HFCardCollectionViewLayout
 
@@ -22,7 +15,13 @@ struct CardInfo {
 class ExampleViewController : UICollectionViewController, HFCardCollectionViewLayoutDelegate {
     
     
+    @IBOutlet var pHoldings: [UILabel]!
     var cardCollectionViewLayout: HFCardCollectionViewLayout?
+    
+    func someFunction() {
+        self.pHoldings[0].text = "text"
+    }
+    
     
     @IBAction func raiseOrder(_ sender: UIButton) {
         let alert = UIAlertController(title: "Order raised!", message: "market meltdown prevented.", preferredStyle: UIAlertController.Style.alert)
@@ -74,7 +73,7 @@ class ExampleViewController : UICollectionViewController, HFCardCollectionViewLa
         cell.mainChart?.image = self.cardArray[indexPath.item].mainImage
         cell.eventDesc?.text = self.cardArray[indexPath.item].eventDesc
         cell.eventNews?.text = self.cardArray[indexPath.item].eventNews
-
+        
         return cell
     }
     
@@ -123,6 +122,7 @@ class ExampleViewController : UICollectionViewController, HFCardCollectionViewLa
         if(self.shouldSetupBackgroundView == true) {
             self.setupBackgroundView()
         }
+        
         if let cardLayoutOptions = self.cardLayoutOptions {
         
             self.cardCollectionViewLayout?.bottomNumberOfStackedCards = cardLayoutOptions.bottomNumberOfStackedCards

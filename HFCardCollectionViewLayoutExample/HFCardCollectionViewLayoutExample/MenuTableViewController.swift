@@ -1,10 +1,4 @@
-//
-//  MenuTableViewController.swift
-//  HFCardCollectionViewLayoutExample
-//
-//  Created by Hendrik Frahmann on 31.10.16.
-//  Copyright © 2016 Hendrik Frahmann. All rights reserved.
-//
+// BLK Hackathon 2019
 
 import UIKit
 
