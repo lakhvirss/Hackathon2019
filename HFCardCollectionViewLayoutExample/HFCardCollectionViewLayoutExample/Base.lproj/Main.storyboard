@@ -84,31 +84,11 @@
                     </tabBar>
                     <connections>
                         <segue destination="ziA-as-FiP" kind="relationship" relationship="viewControllers" id="Hj7-wB-9M1"/>
-                        <segue destination="HZh-mh-dLs" kind="relationship" relationship="viewControllers" id="RkT-Ff-Klx"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2Q-Sp-aGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5519" y="-378"/>
-        </scene>
-        <!--Escalate-->
-        <scene sceneID="hne-tJ-VjV">
-            <objects>
-                <viewController id="HZh-mh-dLs" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1hU-JF-AKN"/>
-                        <viewControllerLayoutGuide type="bottom" id="hGc-RX-S2w"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kqa-N5-3wd">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Escalate" image="escalate" id="Zvl-zF-jTW"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sUj-8c-f7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3738" y="88"/>
         </scene>
         <!--Events-->
         <scene sceneID="Lrx-gp-DKr">
@@ -300,7 +280,6 @@
     <resources>
         <image name="boeing" width="1143" height="639.75"/>
         <image name="boeing-1" width="225" height="150"/>
-        <image name="escalate" width="37.5" height="37.5"/>
         <image name="feed" width="37.5" height="37.5"/>
         <image name="random" width="141.89999389648438" height="90.900001525878906"/>
     </resources>
