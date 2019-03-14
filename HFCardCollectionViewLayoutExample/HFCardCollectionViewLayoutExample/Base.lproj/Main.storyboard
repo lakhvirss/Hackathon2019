@@ -85,7 +85,6 @@
                     <connections>
                         <segue destination="ziA-as-FiP" kind="relationship" relationship="viewControllers" id="Hj7-wB-9M1"/>
                         <segue destination="HZh-mh-dLs" kind="relationship" relationship="viewControllers" id="RkT-Ff-Klx"/>
-                        <segue destination="0aP-L6-QrY" kind="relationship" relationship="viewControllers" id="PzN-L3-FZS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2Q-Sp-aGb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -109,26 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sUj-8c-f7E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3713" y="-1332"/>
-        </scene>
-        <!--Analytics-->
-        <scene sceneID="6fY-LA-tnt">
-            <objects>
-                <viewController id="0aP-L6-QrY" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="qi5-jp-Jg3"/>
-                        <viewControllerLayoutGuide type="bottom" id="ke9-e5-1ml"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="a8d-ii-K1C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Analytics" image="analytics" id="S2I-Xa-I3e"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ant-xm-aal" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3647" y="114"/>
+            <point key="canvasLocation" x="-3738" y="88"/>
         </scene>
         <!--Events-->
         <scene sceneID="Lrx-gp-DKr">
@@ -315,7 +295,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="analytics" width="37.5" height="37.5"/>
         <image name="escalate" width="37.5" height="37.5"/>
         <image name="feed" width="37.5" height="37.5"/>
         <image name="random" width="141.89999389648438" height="90.900001525878906"/>
